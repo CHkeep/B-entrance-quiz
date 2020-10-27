@@ -3,6 +3,8 @@ package com.thoughtworks.capability.gtb.entrancequiz.api;
 import com.thoughtworks.capability.gtb.entrancequiz.domain.Student;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -36,4 +38,11 @@ public class studentController {
     public ResponseEntity getStudents(){
         return ResponseEntity.ok(studentList);
     }
+
+    @PostMapping("/students")
+    public ResponseEntity addStudent(@RequestBody Student student){
+        studentList.add(student);
+        return ResponseEntity.ok(studentList);
+    }
+
 }
