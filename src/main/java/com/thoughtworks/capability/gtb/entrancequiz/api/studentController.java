@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO GTB-工程实践: - studentController，首字母大写！！！
+//TODO GTB-工程实践: - 所有实现均写在了 controller 里
+//TODO GTB-综合: * 整体实现很少，无法给出更多 comments
+//TODO GTB-完成度: * 只实现了查询默认学员列表的 API 和 添加学员的 API
 @RestController
 public class studentController {
     private  List<Student> studentList = initstudentList();
@@ -41,6 +45,7 @@ public class studentController {
 
     @PostMapping("/students")
     public ResponseEntity addStudent(@RequestBody Student student){
+        //TODO GTB-完成度: - student 的 id 不能有客户端提供
         studentList.add(student);
         return ResponseEntity.ok(studentList);
     }

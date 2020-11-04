@@ -14,6 +14,9 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+//TODO GTB-工程实践: - class name 首字要母大写！
+//TODO GTB-测试: + 有两个 tests，测试了默认学员数量 和 添加学员
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class studentControllerTest {
@@ -32,6 +35,7 @@ public class studentControllerTest {
         String jsonString = "{\"id\":15, \"name\":\"甄姬\"}";
         mockMvc.perform(post("/students").content(jsonString).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(16)))
+                //TODO GTB-知识点: - 应该是 CREATED，而不是 OK
                 .andExpect(status().isOk());
     }
 }
